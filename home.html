@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Daisy UI CDN -->
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <!-- Tailwind CDN -->
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+     <!-- Fontawsome CDN -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <!-- CSS -->
+       <link rel="stylesheet" href="./styles/style.css">
+    <title>Payoo</title>
+</head>
+<body class="bg-[#f4f5f7]">
+    
+    <div class="min-h-[50px] flex justify-between max-w-lg mx-auto mt-1 border-b-1 border-gray-200 p-3">
+        <div class="flex gap-2">
+            <img class="h-[50px]" src="./assets/Group.png" alt="" srcset="">
+            <div id="balance-container">
+               <h2 class="font-bold">$ <span id="total-balance" class="hide">45000</span></h2>
+               <p class="text-[#08080880]">Available Balance</p>
+            </div>
+        </div>
+
+        <div>
+            <button class="btn"><i class="fa-solid fa-arrow-right-from-bracket rotate-180 text-[#08080880]"></i> Log Out</button>
+        </div>
+    </div>
+
+    <div class="max-w-lg mx-auto mt-8 px-3">
+        <h1 class="text-black text-2xl font-bold">🔥 Welcome to Payooo!</h1>
+        <p class="text-[#08080880] mt-3">Enjoy easy and convenient financial services with us. Cashout charge is low and many agents. </p>
+    </div>
+
+    <div class="max-w-lg mx-auto mt-8 grid grid-cols-2 gap-3 px-3">
+        <div id="tgl-btn-add-money" class="p-1  border-1 border-[#0808081a] rounded-xl bg-[#f4f5f7]">
+            <img class="my-2 mx-auto" src="./assets/wallet1.png" alt="">
+            <p class="text-center text-[#08080880]">Add Money</p>
+        </div>
+        <div id="tgl-btn-cashout" class="p-1  border-1 border-[#0808081a] rounded-xl bg-[#f4f5f7]">
+            <img class="my-2 mx-auto" src="./assets/send1.png" alt="">
+            <p class="text-center text-[#08080880]">Cashout</p>
+        </div>
+        <div class="p-1 border-1 border-[#0808081a] rounded-xl bg-[#f4f5f7]">
+            <img class="my-2 mx-auto" src="./assets/money1.png" alt="">
+            <p class="text-center text-[#08080880]">Transfer Money</p>
+        </div>
+        <div class="p-1 border-1 border-[#0808081a] rounded-xl bg-[#f4f5f7]">
+            <img class="my-2 mx-auto" src="./assets/bonus1.png" alt="">
+            <p class="text-center text-[#08080880]">Get Bonus</p>
+        </div>
+        <div class="p-1 border-1 border-[#0808081a] rounded-xl bg-[#f4f5f7]">
+            <img class="my-2 mx-auto" src="./assets/purse1.png" alt="">
+            <p class="text-center text-[#08080880]">Pay Bill</p>
+        </div>
+        <div class="p-1 border-1 border-[#0808081a] rounded-xl bg-[#f4f5f7]">
+            <img class="my-2 mx-auto" src="./assets/transaction1.png" alt="">
+            <p class="text-center text-[#08080880]">Transaction</p>
+        </div>
+    </div>
+
+    <div class="all-form-section max-w-lg mx-auto mt-8 px-3 relative">
+        <!-- add money -->
+        <div id="add-money-container">
+            <h1 class="text-lg font-semibold mb-3">Add Money</h1>
+            <form action="" class="bg-white rounded-2xl p-8">
+                <div>
+                    <h1 class="text-[#08080880]">Select A Bank</h1>
+                    <select id="bank" class="select bg-[#f4f5f7] mt-3 rounded-2xl text-[#080808] w-full">
+                        <option>Select Bank</option>
+                        <option>AB Bank</option>
+                        <option>IFIC Bank</option>
+                        <option>Dutch Bangla Bank</option>
+                    </select>
+                </div>
+
+                <div id="account-alert" role="alert" class="alert alert-warning absolute top-[28%] hide">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    <span>Warning: Invalid Account Number</span>
+                </div>
+
+                <div class="mt-3">
+                    <label class="text-[#08080880]" for="">Bank Account Number</label>
+                    <br>
+                    <input id="account-number" type="text" placeholder="Enter 11 digit account number" class="input bg-[#f4f5f7] mt-3 rounded-3xl p-4 w-full" />
+                </div>
+                
+                <div class="mt-3">
+                    <label class="text-[#08080880]" for="">Amount to Add</label>
+                    <br>
+                    <input id="add-amount" type="text" placeholder="Add Amount to add" class="input bg-[#f4f5f7] mt-3 rounded-3xl p-4 w-full" />
+                </div>
+
+                <div id="pin-alert" role="alert" class="alert alert-warning absolute top-[57%] hide">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    <span>Warning: Invalid Pin Number</span>
+                </div>
+                
+                <div class="mt-3">
+                    <label class="text-[#08080880] w-full" for="">Pin Number</label>
+                    <br>
+                    <input id="add-pin" type="text" placeholder="Enter 4 digit pin number" class="input bg-[#f4f5f7] mt-3 rounded-3xl p-4 w-full" />
+                </div>
+
+                <button id="btn-add-money" class="btn text-white bg-[#0874F2] hover:bg-white hover:text-black rounded-3xl w-full mt-5 p-4">Add Money</button>
+                
+            </form>
+        </div>
+
+        <!-- Cashout -->
+        <div id="cashout-container" class="hide">
+            <h1 class="text-lg font-semibold mb-3">Cashout</h1>
+            <form action="" class="bg-white rounded-2xl p-8">
+                <!-- <div id="account-alert" role="alert" class="alert alert-warning absolute top-[28%] hide">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    <span>Warning: Invalid Account Number</span>
+                </div> -->
+
+                <div>
+                    <label class="text-[#08080880]" for="">Agent Number</label>
+                    <br>
+                    <input id="agent-number" type="text" placeholder="Enter 11 digit number" class="input bg-[#f4f5f7] mt-3 rounded-3xl p-4 w-full" />
+                </div>
+                
+                <div class="mt-3">
+                    <label class="text-[#08080880]" for="">Amount</label>
+                    <br>
+                    <input id="cashout-amount" type="text" placeholder="Enter amount to withdraw" class="input bg-[#f4f5f7] mt-3 rounded-3xl p-4 w-full" />
+                </div>
+
+                <!-- <div id="pin-alert" role="alert" class="alert alert-warning absolute top-[57%] hide">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    <span>Warning: Invalid Pin Number</span>
+                </div> -->
+                
+                <div class="mt-3">
+                    <label class="text-[#08080880] w-full" for="">Pin Number</label>
+                    <br>
+                    <input id="cashout-pin" type="text" placeholder="Enter 4 digit pin number" class="input bg-[#f4f5f7] mt-3 rounded-3xl p-4 w-full" />
+                </div>
+
+                <button id="btn-cashout" class="btn text-white bg-[#0874F2] hover:bg-white hover:text-black rounded-3xl w-full mt-5 p-4">Withdraw Money</button>
+                
+            </form>
+        </div>
+
+        
+    </div>
+    <script src="./js/balance.js"></script>
+</body>
+</html>
