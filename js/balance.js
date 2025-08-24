@@ -13,6 +13,10 @@ document.getElementById('btn-log-out').addEventListener('click',function(){
      window.location.href="./index.html"
 })
 
+// Trannsaction History Array
+
+const transactionData = [];
+
 // Add Money
 
 document.getElementById('btn-add-money').addEventListener('click',function(e){
@@ -50,6 +54,13 @@ document.getElementById('btn-add-money').addEventListener('click',function(e){
     const totalNewAvailableBalance = addAmount + totalBalance;
 
     document.getElementById('total-balance').innerText = totalNewAvailableBalance;
+
+    const data = {
+        name: "Add Money",
+        date: new Date().toLocaleTimeString()
+    }
+
+    transactionData.push(data)
 })
 
 // Cashout Money
@@ -68,6 +79,13 @@ document.getElementById('btn-cashout').addEventListener('click',function(e){
     const totalRemainBalance = totalBalance - cashoutAmount;
 
     document.getElementById('total-balance').innerText = totalRemainBalance;
+
+    const data = {
+        name: "Cashout",
+        date: new Date().toLocaleTimeString()
+    }
+
+    transactionData.push(data)
 
 })
 
@@ -113,10 +131,6 @@ document.getElementById('tgl-btn-add-money').addEventListener('click',function()
 
 })
 
-
-
-
-
 document.getElementById('tgl-btn-cashout').addEventListener('click',function(){
 
     handleToggle('cashout-container')
@@ -132,7 +146,6 @@ document.getElementById('tgl-btn-transfer-money').addEventListener('click',funct
     handleActiveButton('tgl-btn-transfer-money')
     
 })
-
 
 document.getElementById('tgl-btn-get-bonus').addEventListener('click',function(){
 
@@ -154,7 +167,37 @@ document.getElementById('tgl-btn-transaction').addEventListener('click',function
     handleToggle('transaction-container')
 
     handleActiveButton('tgl-btn-transaction')
-    
 
 })
 
+
+
+// Transaction history show
+
+document.getElementById("tgl-btn-transaction").addEventListener("click",function(){
+    const transactionContainer = document.getElementById("transaction-history-container")
+    transactionContainer.innerText = ""
+
+    for(const data of transactionData){
+        const div = document.createElement("div");
+        div.innerHTML=`
+        <div class=" bg-white rounded-xl p-3 flex justify-between items-center mt-3">
+              <div class="flex items-center">
+                  <div class="p-3 rounded-full bg-[#f4f5f7]">
+                    <img src="./assets/wallet1.png" class="mx-auto" alt="" />
+                  </div>
+                  <div class="ml-3">
+                    <h1>${data.name}</h1>
+                    <p>${data.date}</p>
+                  </div>
+              </div>
+      
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+        `
+
+        transactionContainer.appendChild(div)
+
+
+    }
+})
