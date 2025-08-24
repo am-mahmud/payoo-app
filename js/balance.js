@@ -7,6 +7,12 @@ document.getElementById('balance-container').addEventListener('click',function()
 
 })
 
+//Logout button
+
+document.getElementById('btn-log-out').addEventListener('click',function(){
+     window.location.href="./index.html"
+})
+
 // Add Money
 
 document.getElementById('btn-add-money').addEventListener('click',function(e){
@@ -65,17 +71,58 @@ document.getElementById('btn-cashout').addEventListener('click',function(e){
 
 })
 
-//Option Toggle
+//Option Toggle - Reuseable function 
+
+function handleToggle(id){
+    const forms = document.getElementsByClassName('forms');
+
+    for(const form of forms){
+        form.classList.add('hide');
+    }
+
+   document.getElementById(id).classList.remove('hide');
+
+   //Here we are using reuseable function 
+}
+
+
+// Toggles
 
 document.getElementById('tgl-btn-add-money').addEventListener('click',function(){
-   document.getElementById('cashout-container').classList.add('hide');
-   document.getElementById('add-money-container').classList.remove('hide');
+
+    handleToggle('add-money-container')
+
 
 })
 
 document.getElementById('tgl-btn-cashout').addEventListener('click',function(){
-   document.getElementById('add-money-container').classList.add('hide');
-   document.getElementById('cashout-container').classList.remove('hide');
+
+    handleToggle('cashout-container')
+
+
+})
+
+document.getElementById('tgl-btn-transfer-money').addEventListener('click',function(){
+
+    handleToggle('transfer-money-container')
+})
+
+
+document.getElementById('tgl-btn-get-bonus').addEventListener('click',function(){
+
+    handleToggle('get-bonus-container')
+
+})
+
+document.getElementById('tgl-btn-pay-bill').addEventListener('click',function(){
+
+    handleToggle('pay-bill-container')
+
+})
+
+document.getElementById('tgl-btn-transaction').addEventListener('click',function(){
+
+    handleToggle('transaction-container')
 
 })
 
