@@ -86,25 +86,51 @@ function handleToggle(id){
 }
 
 
+// Active Button Function 
+
+function handleActiveButton(id){
+
+    // Active Button 
+    const activeBtns = document.getElementsByClassName('active-btn')
+
+    for(const btn of activeBtns ){
+       btn.classList.remove("border-[#0874f2]","bg-[#0874f20d]")
+       btn.classList.add("border-[#0808081a]")
+    }
+
+    document.getElementById(id).classList.remove("border-[#0808081a]","bg-[#f4f5f7]")
+    document.getElementById(id).classList.add("border-[#0874f2]","bg-[#0874f20d]")
+
+}
+
 // Toggles
 
 document.getElementById('tgl-btn-add-money').addEventListener('click',function(){
 
     handleToggle('add-money-container')
 
+    handleActiveButton('tgl-btn-add-money')
 
 })
+
+
+
+
 
 document.getElementById('tgl-btn-cashout').addEventListener('click',function(){
 
     handleToggle('cashout-container')
 
+    handleActiveButton('tgl-btn-cashout')
 
 })
 
 document.getElementById('tgl-btn-transfer-money').addEventListener('click',function(){
 
     handleToggle('transfer-money-container')
+
+    handleActiveButton('tgl-btn-transfer-money')
+    
 })
 
 
@@ -112,17 +138,23 @@ document.getElementById('tgl-btn-get-bonus').addEventListener('click',function()
 
     handleToggle('get-bonus-container')
 
+    handleActiveButton('tgl-btn-get-bonus')
 })
 
 document.getElementById('tgl-btn-pay-bill').addEventListener('click',function(){
 
     handleToggle('pay-bill-container')
 
+    handleActiveButton('tgl-btn-pay-bill')
+
 })
 
 document.getElementById('tgl-btn-transaction').addEventListener('click',function(){
 
     handleToggle('transaction-container')
+
+    handleActiveButton('tgl-btn-transaction')
+    
 
 })
 
